@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The app mark: a caliper measuring a chip.
+
+  It says "instrument", not "phone" or "gauge". A speedometer or a score dial would
+  imply the app rates the device, and it does not — it reports what the platform
+  answered. A measuring tool over a die is the honest metaphor.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Die body -->
+    <path
+        android:fillColor="#7DD3FC"
+        android:pathData="M38,38 h32 a4,4 0 0 1 4,4 v24 a4,4 0 0 1 -4,4 h-32 a4,4 0 0 1 -4,-4 v-24 a4,4 0 0 1 4,-4 z" />
+    <!-- Die core, cut out so the body reads as a frame -->
+    <path
+        android:fillColor="#0B0D10"
+        android:pathData="M43,47 h22 a2,2 0 0 1 2,2 v10 a2,2 0 0 1 -2,2 h-22 a2,2 0 0 1 -2,-2 v-10 a2,2 0 0 1 2,-2 z" />
+
+    <!-- Pins, left -->
+    <path android:fillColor="#38BDF8" android:pathData="M27,44 h7 v3 h-7 z" />
+    <path android:fillColor="#38BDF8" android:pathData="M27,52.5 h7 v3 h-7 z" />
+    <path android:fillColor="#38BDF8" android:pathData="M27,61 h7 v3 h-7 z" />
+    <!-- Pins, right -->
+    <path android:fillColor="#38BDF8" android:pathData="M74,44 h7 v3 h-7 z" />
+    <path android:fillColor="#38BDF8" android:pathData="M74,52.5 h7 v3 h-7 z" />
+    <path android:fillColor="#38BDF8" android:pathData="M74,61 h7 v3 h-7 z" />
+    <!-- Pins, top -->
+    <path android:fillColor="#38BDF8" android:pathData="M44,27 h3 v7 h-3 z" />
+    <path android:fillColor="#38BDF8" android:pathData="M52.5,27 h3 v7 h-3 z" />
+    <path android:fillColor="#38BDF8" android:pathData="M61,27 h3 v7 h-3 z" />
+    <!-- Pins, bottom -->
+    <path android:fillColor="#38BDF8" android:pathData="M44,74 h3 v7 h-3 z" />
+    <path android:fillColor="#38BDF8" android:pathData="M52.5,74 h3 v7 h-3 z" />
+    <path android:fillColor="#38BDF8" android:pathData="M61,74 h3 v7 h-3 z" />
+
+    <!-- Caliper jaw across the die: the measuring gesture -->
+    <path
+        android:fillColor="#F1F5F9"
+        android:pathData="M45,41 h3 v26 h-3 z" />
+    <path
+        android:fillColor="#F1F5F9"
+        android:pathData="M60,41 h3 v26 h-3 z" />
+    <path
+        android:fillColor="#F1F5F9"
+        android:pathData="M45,52.5 h18 v3 h-18 z" />
+</vector>

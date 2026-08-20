@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Backup rules for Android 12 and newer (android:dataExtractionRules).
+
+  Saved snapshots and settings are included: a snapshot of a device the user no longer
+  owns cannot be regenerated, so it is exactly the kind of thing that should survive a
+  device transfer.
+
+  The export cache is excluded from both paths. It holds transient copies of reports the
+  user has already shared, so backing them up would keep a record of past scans the user
+  did not ask to keep.
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <include domain="database" path="." />
+        <include domain="sharedpref" path="." />
+        <include domain="file" path="datastore" />
+        <exclude domain="external" path="." />
+    </cloud-backup>
+    <device-transfer>
+        <include domain="database" path="." />
+        <include domain="sharedpref" path="." />
+        <include domain="file" path="datastore" />
+    </device-transfer>
+</data-extraction-rules>

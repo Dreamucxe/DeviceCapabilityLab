@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      Permissions.
+
+      Section 25 asks for only what is genuinely required, and this is the whole list.
+      Both are normal-protection: they are granted at install time and never produce a
+      runtime prompt, so the app has no permission dialog anywhere.
+
+      ACCESS_WIFI_STATE is what WifiManager's capability queries need — is5GHzBandSupported,
+      is6GHzBandSupported, isWifiStandardSupported, isP2pSupported and the rest all
+      require it and throw SecurityException without it.
+
+      ACCESS_NETWORK_STATE lets ConnectivityManager report which transports the device
+      has. Note the difference from the dangerous location permissions: this app never
+      reads the connected network's SSID, BSSID or scan results, which is what
+      ACCESS_FINE_LOCATION would be for. Those describe where the user is, not what the
+      radio can do.
+
+      Deliberately absent:
+        * INTERNET — the app is entirely offline (Section 26). Without this permission
+          it is structurally incapable of sending anything anywhere.
+        * ACCESS_FINE_LOCATION / ACCESS_COARSE_LOCATION — would unlock SSID and Wi-Fi
+          scan results, which are not capabilities.
+        * BLUETOOTH_CONNECT / BLUETOOTH_SCAN — would unlock paired-device names and
+          scanning. Adapter capability (LE, LE audio, 2M PHY, extended advertising,
+          maximum advertising data length) is readable without them.
+        * CAMERA — Camera2 characteristics, which is all this app reads, need no
+          permission. The permission is for opening a capture session.
+        * RECORD_AUDIO — AudioManager properties and device lists need no permission.
+        * READ_PHONE_STATE, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, QUERY_ALL_PACKAGES
+          — none are needed for anything here.
+
+      USE_BIOMETRIC and USE_FINGERPRINT are merged in by androidx.biometric's own
+      manifest; both are normal-protection, and only BiometricManager.canAuthenticate()
+      is called. No BiometricPrompt is ever shown.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--
+      Hardware features, all optional.
+
+      Every one is `required="false"`, without exception. This app's entire purpose is
+      to report which of these a device has, so a device that lacks one is precisely a
+      device that needs it — marking any as required would make the app uninstallable
+      on the hardware it is most useful for. Google Play uses these to filter, so a
+      single missing `required="false"` would silently hide the app from a whole class
+      of device.
+    -->
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
+    <uses-feature android:name="android.hardware.wifi" android:required="false" />
+    <uses-feature android:name="android.hardware.wifi.direct" android:required="false" />
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false" />
+    <uses-feature android:name="android.hardware.usb.host" android:required="false" />
+    <uses-feature android:name="android.hardware.usb.accessory" android:required="false" />
+    <uses-feature android:name="android.hardware.fingerprint" android:required="false" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" />
+    <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="false" />
+    <uses-feature android:name="android.hardware.sensor.compass" android:required="false" />
+    <uses-feature android:name="android.hardware.sensor.barometer" android:required="false" />
+    <uses-feature android:name="android.hardware.sensor.light" android:required="false" />
+    <uses-feature android:name="android.hardware.sensor.proximity" android:required="false" />
+    <uses-feature android:name="android.hardware.sensor.stepcounter" android:required="false" />
+    <uses-feature android:name="android.hardware.sensor.hifi_sensors" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-feature android:name="android.hardware.nfc" android:required="false" />
+    <uses-feature android:name="android.hardware.vulkan.level" android:required="false" />
+    <uses-feature android:name="android.hardware.vulkan.version" android:required="false" />
+    <uses-feature android:glEsVersion="0x00020000" android:required="false" />
+
+    <application
+        android:name=".DeviceLabApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DeviceLab.Starting"
+        tools:targetApi="34">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.DeviceLab.Starting"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize"
+            android:resizeableActivity="true"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden|uiMode|density|fontScale|layoutDirection">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+          Exports are written to cacheDir and shared through this provider, so the app
+          needs no storage permission on any supported API level. grantUriPermissions
+          plus FLAG_GRANT_READ_URI_PERMISSION on the share intent means the receiving
+          app gets read access to exactly the one file the user chose to share.
+        -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.exports"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+</manifest>

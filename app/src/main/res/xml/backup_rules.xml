@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Backup rules for Android 11 and older (android:fullBackupContent).
+
+  Same intent as data_extraction_rules.xml: saved snapshots and settings are worth
+  keeping, the export cache is not.
+-->
+<full-backup-content>
+    <include domain="database" path="." />
+    <include domain="sharedpref" path="." />
+    <include domain="file" path="datastore" />
+</full-backup-content>

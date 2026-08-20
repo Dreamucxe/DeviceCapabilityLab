@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The launch theme.
+
+  Compose supplies every colour the app actually shows, so this exists for one purpose:
+  to be correct in the window that opens before Compose runs. Section 22 asks for dark
+  by default, and the window background here is the dark scheme's background, so there
+  is no white flash on cold start.
+
+  It is not a DayNight theme. If it followed the system, a device in light mode would
+  flash white and then land on the app's dark UI. Matching the app's own default is the
+  quieter behaviour.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.DeviceLab" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="27">shortEdges</item>
+    </style>
+
+    <!--
+      The splash theme, from androidx.core:core-splashscreen.
+
+      postSplashScreenTheme is what the library switches to once the activity is ready,
+      which is why the manifest can name this theme for both the application and the
+      activity.
+    -->
+    <style name="Theme.DeviceLab.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.DeviceLab</item>
+    </style>
+</resources>

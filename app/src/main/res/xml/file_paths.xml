@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Exports are written to cacheDir/exports and shared through FileProvider.
+
+  Only that one subdirectory is exposed. Naming `cache-path` with path="exports/" rather
+  than the whole cache means a share URI cannot be pointed at anything else the app has
+  cached, and the database is not under cacheDir at all.
+-->
+<paths>
+    <cache-path name="exports" path="exports/" />
+</paths>

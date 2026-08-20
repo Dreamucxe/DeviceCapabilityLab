@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Colours used outside Compose.
+
+  The app's palette lives in Kotlin (ui/theme/Color.kt); these three exist only because
+  the splash theme and the window background are declared in XML, which runs before any
+  Compose code. They are kept in sync with the dark scheme's background so there is no
+  flash of a different colour between the splash screen and the first frame.
+-->
+<resources>
+    <color name="splash_background">#FF0B0D10</color>
+    <color name="splash_icon_background">#FF0B0D10</color>
+    <color name="window_background">#FF0B0D10</color>
+</resources>

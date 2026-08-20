@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Capability Lab</string>
+    <string name="app_name_long">Device Capability Lab</string>
+    <string name="app_tagline">What can this device actually do?</string>
+
+    <!-- Bottom navigation -->
+    <string name="tab_dashboard">Dashboard</string>
+    <string name="tab_capabilities">Capabilities</string>
+    <string name="tab_hardware">Hardware</string>
+    <string name="tab_history">History</string>
+    <string name="tab_settings">Settings</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_scanning">Inspecting device…</string>
+    <string name="dashboard_scanning_lab">Reading %1$s</string>
+    <string name="dashboard_summary_title">Capability summary</string>
+    <string name="dashboard_summary_caption">Eight domains, derived from what the platform actually answered. There is no overall score: no honest one exists.</string>
+    <string name="dashboard_rescan">Scan again</string>
+    <string name="dashboard_save">Save snapshot</string>
+    <string name="dashboard_export">Export</string>
+    <string name="dashboard_scan_duration">Scan took %1$s</string>
+    <string name="dashboard_facts_read">%1$d values read across %2$d labs</string>
+    <string name="dashboard_saved">Snapshot saved</string>
+    <string name="dashboard_notes">Detection notes</string>
+
+    <!-- Capabilities -->
+    <string name="capabilities_title">Capability matrix</string>
+    <string name="capabilities_caption">Every yes/no capability, with the API that answered. Measurements live on their lab’s page.</string>
+    <string name="capabilities_search_hint">Search: Vulkan, AV1, 120Hz, RAW, Wi‑Fi 6…</string>
+    <string name="capabilities_column_capability">Capability</string>
+    <string name="capabilities_column_status">Status</string>
+    <string name="capabilities_column_details">Details</string>
+    <string name="capabilities_empty">Nothing matches that search</string>
+    <string name="capabilities_empty_hint">Try a shorter query, or a platform name such as HDR10, 802.11ax or Widevine.</string>
+    <string name="capabilities_filter_all">All</string>
+    <string name="capabilities_filter_supported">Supported</string>
+    <string name="capabilities_filter_api">Not on this Android version</string>
+    <string name="capabilities_filter_hardware">Not on this hardware</string>
+    <string name="capabilities_showing">Showing %1$d of %2$d capability rows</string>
+
+    <!-- Hardware -->
+    <string name="hardware_title">Hardware labs</string>
+    <string name="hardware_caption">Fifteen inspection areas. Every value comes from a platform API on this device.</string>
+    <string name="hardware_lab_values">%1$d values</string>
+    <string name="hardware_lab_counts">%1$d of %2$d capabilities · %3$d values</string>
+    <string name="hardware_lab_has_notes">Has notes</string>
+    <string name="hardware_total">%1$d values read on this device</string>
+    <string name="lab_search_hint">Search this lab</string>
+    <string name="lab_matched">%1$d of %2$d values match</string>
+    <string name="lab_values_total">%1$d values</string>
+    <string name="lab_hidden">%1$d unavailable rows hidden by a setting</string>
+    <string name="lab_notes">Detection notes</string>
+    <string name="lab_empty">Nothing matches that search</string>
+    <string name="lab_empty_hint">Clear the search to see everything this lab read.</string>
+    <string name="lab_unknown">Unknown lab</string>
+    <string name="lab_unknown_hint">This screen was opened with a lab that no longer exists in this build.</string>
+    <string name="lab_no_data">This lab produced no values</string>
+    <string name="lab_no_data_hint">The scan may still be running, or it failed. Try scanning again from the dashboard.</string>
+
+    <!-- History -->
+    <string name="history_title">Snapshots</string>
+    <string name="history_caption">Saved scans stay on this device. Comparing two shows what changed.</string>
+    <string name="history_empty">No saved snapshots</string>
+    <string name="history_empty_hint">Save a snapshot from the dashboard to compare this device against itself later, or against another device.</string>
+    <string name="history_compare">Compare</string>
+    <string name="history_compare_with_current">Compare with current scan</string>
+    <string name="history_rename">Rename</string>
+    <string name="history_delete">Delete</string>
+    <string name="history_delete_all">Delete all snapshots</string>
+    <string name="history_open">Open</string>
+    <string name="history_select_two">Select two snapshots to compare</string>
+    <string name="history_one_selected">One selected. Select a second, or compare it with the current scan.</string>
+    <string name="history_two_selected">Two selected. Ready to compare.</string>
+    <string name="history_clear_selection">Clear selection</string>
+    <string name="history_rename_label">Snapshot name</string>
+    <string name="history_delete_all_body">This permanently deletes all %1$d saved snapshots. It cannot be undone.</string>
+    <string name="history_fact_count">%1$d values</string>
+    <string name="snapshot_title">Saved snapshot</string>
+    <string name="snapshot_not_found">Snapshot not found</string>
+    <string name="snapshot_not_found_hint">It may have been deleted, or trimmed by the snapshot limit in Settings.</string>
+    <string name="snapshot_captured">Captured %1$s</string>
+    <string name="snapshot_search_hint">Search this snapshot</string>
+    <string name="snapshot_matched">%1$d of %2$d values match</string>
+    <string name="snapshot_stored_note">These values are as they were read when the snapshot was saved. They are not re-read from this device.</string>
+
+    <!-- Compare -->
+    <string name="compare_title">Comparison</string>
+    <string name="compare_added">Added</string>
+    <string name="compare_removed">Removed</string>
+    <string name="compare_changed">Changed</string>
+    <string name="compare_unchanged">Unchanged</string>
+    <string name="compare_identical">These two snapshots are identical</string>
+    <string name="compare_identical_hint">Every value matched, including how each one was obtained. Turn on unchanged rows to read them.</string>
+    <string name="compare_show_unchanged">Show unchanged</string>
+    <string name="compare_show_unchanged_count">Show %1$d unchanged</string>
+    <string name="compare_loading">Comparing…</string>
+    <string name="compare_unavailable">Comparison unavailable</string>
+    <string name="compare_unavailable_hint">One of the snapshots could not be loaded, or the current scan has not finished yet.</string>
+    <string name="compare_summary">What changed</string>
+    <string name="compare_left">Before</string>
+    <string name="compare_right">After</string>
+    <string name="compare_different_devices">These snapshots came from different devices, so most differences will be hardware differences rather than changes over time.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_caption">These change how the report is presented. None of them changes what Android will answer.</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_dynamic_color">Dynamic colour</string>
+    <string name="settings_dynamic_color_note">Use the wallpaper palette. Requires Android 12 or newer.</string>
+    <string name="settings_reduce_motion">Reduce motion</string>
+    <string name="settings_reduce_motion_note">Removes transitions and progress animation.</string>
+    <string name="settings_monospace">Monospaced values</string>
+    <string name="settings_monospace_note">Easier to compare figures; slightly wider.</string>
+    <string name="settings_reporting">Reporting</string>
+    <string name="settings_show_provenance">Show which API answered</string>
+    <string name="settings_show_provenance_note">Every row states the API it came from, or why it could not be read. Turning this off hides the evidence, not the values.</string>
+    <string name="settings_show_unavailable">Show unavailable rows</string>
+    <string name="settings_show_unavailable_note">Keeps rows the platform would not answer. Hiding them makes the device look more capable than it reported.</string>
+    <string name="settings_data">Data</string>
+    <string name="settings_keep_snapshots">Snapshots to keep</string>
+    <string name="settings_keep_snapshots_note">Oldest are removed first, and only when a new snapshot is saved.</string>
+    <string name="settings_export_format">Default export format</string>
+    <string name="settings_about">About</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_about_body">Every value in this app is read from an Android API on this device. Nothing is inferred, benchmarked or estimated. Where the platform will not answer, the row says which API was called and why.\n\nThe app works entirely offline. It holds no INTERNET permission, has no account, no analytics and no server, so nothing it reads can leave the device except through an export you share yourself.</string>
+    <string name="settings_privacy_title">What this app does not read</string>
+    <string name="settings_privacy_body">Biometric templates and hardware-backed key material are non-exportable by Android’s hardware design; this app reports only classification — whether the sensor exists, whether the keystore is hardware-backed, which biometric strength class is available. Stable device identifiers such as the hardware serial and the DRM device unique ID are readable but deliberately not read, and those rows say so.</string>
+
+    <!-- Export -->
+    <string name="export_title">Export report</string>
+    <string name="export_format">Format</string>
+    <string name="export_share">Share</string>
+    <string name="export_copy">Copy to clipboard</string>
+    <string name="export_copied">Report copied</string>
+    <string name="export_size">%1$s, %2$d values</string>
+    <string name="export_privacy_note">The report describes the hardware and the Android build. It contains no account, contact, location or app-usage information.</string>
+    <string name="export_failed">Could not write the export file</string>
+    <string name="export_waiting">The scan has not finished, so there is nothing to export yet.</string>
+
+    <!-- Shared -->
+    <string name="action_back">Back</string>
+    <string name="action_close">Close</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_save">Save</string>
+    <string name="action_retry">Try again</string>
+    <string name="action_clear_search">Clear search</string>
+    <string name="action_expand">Show technical detail</string>
+    <string name="action_collapse">Hide technical detail</string>
+    <string name="label_provenance">Source</string>
+    <string name="scan_failed">The scan could not be completed</string>
+
+    <!-- Content descriptions -->
+    <string name="cd_status">Status: %1$s</string>
+    <string name="cd_fact">%1$s: %2$s. %3$s</string>
+    <string name="cd_domain_status">%1$s: %2$s. %3$s</string>
+    <string name="cd_scan_progress">Scan %1$d percent complete</string>
+    <string name="cd_selected">Selected</string>
+    <string name="cd_not_selected">Not selected</string>
+</resources>
